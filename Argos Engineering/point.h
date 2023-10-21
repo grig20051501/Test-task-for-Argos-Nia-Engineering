@@ -2,12 +2,12 @@
 
 class point {
 private:
-	int xCoordinate;
-	int yCoordinate;
+	double xCoordinate;
+	double yCoordinate;
 public:
-	point(int x, int y);
-	int getXCoordinate();
-	int getYCoordinate();
-	void changeXCoordinate(int newX);
-	void changeYCoordinate(int newY);
+	point(double x, double y);
+	double getXCoordinate();
+	double getYCoordinate();
+	void changeXCoordinate(double newX);
+	void changeYCoordinate(double newY);
 };

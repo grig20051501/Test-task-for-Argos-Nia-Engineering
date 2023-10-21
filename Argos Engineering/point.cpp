@@ -1,23 +1,23 @@
 #include "point.h"
 
-point::point(int x, int y) {
+point::point(double x, double y) {
 	this->xCoordinate = x;
 	this->yCoordinate = y;
 };
 
-int point::getXCoordinate() {
+double point::getXCoordinate() {
 	return this->xCoordinate;
 };
 
-int point::getYCoordinate() {
+double point::getYCoordinate() {
 	return this->yCoordinate;
 };
 
-void point::changeXCoordinate(int newX) {
+void point::changeXCoordinate(double newX) {
 	this->xCoordinate = newX;
 };
 
-void point::changeYCoordinate(int newY) {
+void point::changeYCoordinate(double newY) {
 	this->yCoordinate = newY;
 };
 
