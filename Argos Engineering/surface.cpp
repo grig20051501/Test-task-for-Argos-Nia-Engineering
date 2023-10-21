@@ -1,5 +1,4 @@
 #include "surface.h"
-#include "point.h"
 #include <time.h>
 
 surface::surface(point firstPoint, point lastPoint, double scale, bool doesSpawnParticles) {
@@ -30,6 +29,7 @@ void surface::printLine() {
 	}
 }
 
+//бюфмн: ядекюрэ опнбепйс бнглнфмнярх янгдюмхъ вюярхж
 vector<particle> surface::spawnParticles(int numOfParticles) {
 	int scale = this->lineOfSurface.size() / numOfParticles;
 	vector<particle> particles;
