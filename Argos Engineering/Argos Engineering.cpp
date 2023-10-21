@@ -1,14 +1,9 @@
 ﻿#include <iostream>
 #include "particle.h"
-
 using namespace std;
 
 int main()
 {
-    particle particle1(1,1);
-    particle1.printStatus();
-    particle1.addCollision(2, 2);
-    particle1.printStatus();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

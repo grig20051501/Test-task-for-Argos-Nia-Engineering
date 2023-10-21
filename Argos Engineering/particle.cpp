@@ -1,4 +1,5 @@
 #include "particle.h"
+#include "point.h"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,48 +15,41 @@ using namespace std;
 
 
     // онструктор частицы. ѕо умолчанию считаетс€, что частица не сталкивалась с поверхностью. x0, y0 - начальные координаты
-    particle::particle(int x0, int y0, bool collisionStatus) {
-        this->xCoordinates.push_back(x0);
-        this->yCoordinates.push_back(y0);
+    particle::particle(point start, bool collisionStatus) {
+        this->coordinates.push_back(start);
         this->collisionStatus = collisionStatus;
     }
     //ѕолчуение траектории движени€ частицы по оси x дл€ дальнейшей обработки
-    vector<int> particle::get_x_trajectory() {
-        return this->xCoordinates;
-    }
-    //ѕолчуение траектории движени€ частицы по оси y дл€ дальнейшей обработки
-    vector<int> particle::get_y_Trajectory() {
-        return this->yCoordinates;
+    vector<point> particle::getTrajectory() {
+        return this->coordinates;
     }
     //ѕолучение статуса столкновени€ дл€ дальнейшей обработки
     bool particle::hasCollided() {
         return this->collisionStatus;
     }
     //ƒобавление точки траектории частицы
-    void particle::addPoint(int x, int y) {
-        this->xCoordinates.push_back(x);
-        this->yCoordinates.push_back(y);
+    void particle::addPoint(point p) {
+        this->coordinates.push_back(p);
     }
     //ƒобавление столкновени€ частицы с поверхностью в точке с координатами x и y. ≈сли столкновение происходило ранее, выводитс€ сообщение об этом
-    void particle::addCollision(int x, int y) {
+    void particle::addCollision(point p) {
 
         if (this->collisionStatus) {
             cout << "Adding collision error! Particle has already collided!" << endl;
         }
         else
         {
-            this->xCoordinates.push_back(x);
-            this->yCoordinates.push_back(y);
+            this->coordinates.push_back(p);
             this->collisionStatus = true;
         }
     }
     //¬ывод статуса частицы на экран
     void particle::printStatus() {
         if (collisionStatus) {
-            cout << "partice has collided with surface in x = " << this->xCoordinates[this->xCoordinates.size() - 1] << " y = " << this->yCoordinates[yCoordinates.size() - 1] << endl;
+            cout << "partice has collided with surface in x = " << this->coordinates[this->coordinates.size() - 1].getXCoordinate() << " y = " << this->coordinates[coordinates.size() - 1].getYCoordinate() << endl;
         }
         else
         {
-            cout << "particle last coordinates are x = " << this->xCoordinates[this->xCoordinates.size() - 1] << " and y = " << this->yCoordinates[yCoordinates.size() - 1] << endl;
+            cout << "particle last coordinates are x = " << this->coordinates[this->coordinates.size() - 1].getXCoordinate() << " and y = " << this->coordinates[coordinates.size() - 1].getYCoordinate() << endl;
         }
     }
