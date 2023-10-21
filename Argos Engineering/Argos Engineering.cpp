@@ -1,11 +1,14 @@
-﻿// Argos Engineering.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include "particle.h"
 
-#include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    particle particle1(1,1);
+    particle1.printStatus();
+    particle1.addCollision(2, 2);
+    particle1.printStatus();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
