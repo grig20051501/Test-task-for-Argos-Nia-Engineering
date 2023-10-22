@@ -55,9 +55,11 @@ void particle::changeYVelocity(double newYVelocity) {
 }
 
 void particle::move() {
+    //ÂÀÆÍÎ: ÄÎÁÀÂÈÒÜ ÏÅÐÅÑÅ×ÅÍÈÅ Ñ ÏÎÂÅÐÕÍÎÑÒßÌÈ
     if (!this->collisionStatus) {
         point lastPoint = this->path[this->path.size() - 1];
-        point newPoint = point(lastPoint.getXCoordinate() + this->xVelocity, lastPoint.getYCoordinate() + this->yVelocity);
-        this->path.push_back(newPoint);
+        
+        point newP(lastPoint.getXCoordinate() + this->xVelocity, lastPoint.getYCoordinate() + this->yVelocity);
+        this->addPoint(newP);
     }
 }

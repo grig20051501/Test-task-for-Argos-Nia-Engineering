@@ -6,6 +6,7 @@ surface::surface(point firstPoint, point lastPoint, double scale, bool doesSpawn
 	this->scale = scale;
 	this->doesSpawnParticles = doesSpawnParticles;
 
+	//Вычисление точек отрезка по каноническому уравнению прямой
 	double x = min(firstPoint.getXCoordinate(), lastPoint.getXCoordinate());
 	double xa = min(firstPoint.getXCoordinate(), lastPoint.getXCoordinate());
 	double xb = max(firstPoint.getXCoordinate(), lastPoint.getXCoordinate());
@@ -60,7 +61,11 @@ vector<particle> surface::spawnParticles(int numOfParticles, double xVelocity, d
 			yVelocity = rand() % 9;
 		}
 
-		particles.push_back(particle(point(this->lineOfSurface[rand() % this->lineOfSurface.size()]), xVelocity, yVelocity));
+		particles.push_back(particle(point(this->lineOfSurface[rand() % this->lineOfSurface.size()]), xVelocity, yVelocity, false));
 	}
 	return particles;
+}
+
+bool surface::canSpawn() {
+	return this->doesSpawnParticles;
 }

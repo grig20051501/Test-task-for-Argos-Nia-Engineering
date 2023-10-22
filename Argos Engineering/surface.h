@@ -16,13 +16,16 @@ public:
 
 	//Конструктор поверхности. Принимает первую точку отрезка, последнюю точку отрезка, расстояние между точками и возможность создавать частицы
 	//Внутри высчитывается массив точек отрезка 
-	surface(point firstPoint, point lastPoint, double scale, bool doesSpawnParticles = false);
+	surface(point firstPoint, point lastPoint, double scale, bool doesSpawnParticles);
 
 	//Создание заданного количества частиц ( если возможно ) в случайных точках поверхности с заданными скоростями движения по осям ( по умолчанию случайными )
-	vector<particle> spawnParticles(int numOfParticles, double xVelocity = -1, double yVelocity = -1);
+	vector<particle> spawnParticles(int numOfParticles, double xVelocity, double yVelocity);
 
 	//Вывод массива точек отрезка
 	void printLine();
+
+	//Получение возможности поверхности создавать новые частицы
+	bool canSpawn();
 
 
 };

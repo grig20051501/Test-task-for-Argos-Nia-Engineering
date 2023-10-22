@@ -1,5 +1,7 @@
 ﻿  Argos Engineering.cpp
-  surface.cpp
-C:\Users\User\Desktop\Argos Engineering\Argos Engineering\surface.cpp(35,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  engine.cpp
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(31,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(58,34): warning C4018: >=: несоответствие типов со знаком и без знака
   Создание кода...
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(15): warning C4715: engine::findSpawningSurface: значение возвращается не при всех путях выполнения
   Argos Engineering.vcxproj -> C:\Users\User\Desktop\Argos Engineering\Debug\Argos Engineering.exe

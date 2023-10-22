@@ -10,6 +10,8 @@ public:
 	//Конструктор точки. Принимает две координаты - x и y
 	point(double x, double y);
 
+	point();
+
 	//Получение координаты точки по оси x
 	double getXCoordinate();
 

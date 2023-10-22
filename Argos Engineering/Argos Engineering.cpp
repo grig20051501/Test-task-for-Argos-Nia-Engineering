@@ -2,26 +2,19 @@
 #include "particle.h"
 #include "point.h"
 #include "surface.h"
+#include "engine.h"
 
 using namespace std;
 
 int main()
 {
-	surface sur(point(0, 0), point(10, 10), 1, true);
-	sur.printLine();
+	point first(0, 0);
+	point last(10, 10);
 
-	vector<particle> spawnedParticles = sur.spawnParticles(20);
-
-	for (particle part : spawnedParticles) {
-		part.printStatus();
-	}
-
-	/*particle part(point(0, 0), 1, 2, true);
-	for (int i = 0; i < 10; i++) {
-		part.move();
-	}
-	vector<point> path = part.getPath();
-	for (point p : path) {
-		cout << p.getXCoordinate() << " " << p.getYCoordinate() << endl;
-	}*/
+	engine eng;
+	eng.spawnSurface(first, last, 1, true);
+	eng.spawnParticles(100);
+	eng.moveParticles(7);
+	eng.printPathOfParticles();
+	eng.calculate(7);
 }
