@@ -18,8 +18,8 @@ public:
 	//Внутри высчитывается массив точек отрезка 
 	surface(point firstPoint, point lastPoint, double scale, bool doesSpawnParticles = false);
 
-	//Создание заданного количества частиц ( если возможно ) в случайных точках поверхности
-	vector<particle> spawnParticles(int numOfParticles);
+	//Создание заданного количества частиц ( если возможно ) в случайных точках поверхности с заданными скоростями движения по осям ( по умолчанию случайными )
+	vector<particle> spawnParticles(int numOfParticles, double xVelocity = -1, double yVelocity = -1);
 
 	//Вывод массива точек отрезка
 	void printLine();

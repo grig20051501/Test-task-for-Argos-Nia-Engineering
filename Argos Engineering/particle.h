@@ -7,19 +7,22 @@ using namespace std;
 
 class particle
 {
-    //—войства частицы: траектори€ по оси x, траектори€ по оси y , статус столкновени€ с поверхностью
+    //—войства частицы: траектори€ движени€, скорости движкени€ по ос€м, статус столкновени€ с поверхностью
 
 private:
-    vector<point> coordinates;
+    vector<point> path;
     bool collisionStatus;
+	double xVelocity;
+	double yVelocity;
 
 public:
 
     // онструктор частицы. ѕо умолчанию считаетс€, что частица не сталкивалась с поверхностью. start - начальна€ точка в траектории движени€
-    particle(point start, bool collisionStatus = false);
+	//xVelocity, yVelocity - скорости движени€ частицы по ос€м соответственно
+    particle(point start, double xVelocity, double yVelocity, bool collisionStatus = false);
 
     //ѕолчуение траектории движени€ частицы дл€ дальнейшей обработки
-    vector<point> getTrajectory();
+    vector<point> getPath();
 
     //ѕолучение статуса столкновени€ дл€ дальнейшей обработки
     bool hasCollided();
@@ -32,5 +35,14 @@ public:
 
     //¬ывод статуса частицы на экран
     void printStatus();
+
+	//»зменение скорости движени€ частицы по оси x
+	void changeXVelocity(double newXVelocity);
+
+	//»зменение скорости движени€ частицы по оси y
+	void changeYVelocity(double newYVelocity);
+
+	//ƒвижение частицы в течение единичного отрезка времени
+	void move();
 };
 

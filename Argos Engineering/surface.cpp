@@ -30,13 +30,37 @@ void surface::printLine() {
 }
 
 //бюфмн: ядекюрэ опнбепйс бнглнфмнярх янгдюмхъ вюярхж
-vector<particle> surface::spawnParticles(int numOfParticles) {
-	int scale = this->lineOfSurface.size() / numOfParticles;
-	vector<particle> particles;
+vector<particle> surface::spawnParticles(int numOfParticles, double xVelocity, double yVelocity) {
+
 	srand(time(0));
+	vector<particle> particles;
+	if (!this->doesSpawnParticles) {
+		cout << "Spawning particles error! This surface can not spawn";
+		return particles;
+	}
+
+	bool isXVelocityRandom = false;
+	bool isYVelocityRandom = false;
+
+	if (xVelocity == -1) {
+		isXVelocityRandom = true;
+	}
+
+	if (yVelocity == -1) {
+		isYVelocityRandom = true;
+	}
 
 	for(int i = 0 ; i < numOfParticles; i++) {
-		particles.push_back(particle(point(this->lineOfSurface[rand() % this->lineOfSurface.size()])));
+
+		if (isXVelocityRandom) {
+			xVelocity = rand() % 9;
+		}
+
+		if (isYVelocityRandom) {
+			yVelocity = rand() % 9;
+		}
+
+		particles.push_back(particle(point(this->lineOfSurface[rand() % this->lineOfSurface.size()]), xVelocity, yVelocity));
 	}
 	return particles;
 }

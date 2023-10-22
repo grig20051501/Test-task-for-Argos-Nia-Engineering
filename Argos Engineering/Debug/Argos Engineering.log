@@ -1,2 +1,5 @@
 ﻿  Argos Engineering.cpp
+  surface.cpp
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\surface.cpp(35,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
   Argos Engineering.vcxproj -> C:\Users\User\Desktop\Argos Engineering\Debug\Argos Engineering.exe
