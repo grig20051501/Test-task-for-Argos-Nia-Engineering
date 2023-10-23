@@ -79,7 +79,7 @@ void engine::moveParticles(int time) {
 					if (this->areLinesIntersecting(part1, part2, p1, p2) && !this->surfaces[k].canSpawn() && !this->particles[i].hasCollided()) {
 						point a = this->findClosestPoint(part2.getXCoordinate(), part2.getYCoordinate(), this->surfaces[k].getPoints());
 						this->particles[i].addCollision(a);
-						cout << "Particle # " << i << " has collided in x = " << a.getXCoordinate() << " y = " << a.getYCoordinate() << endl;
+						cout << "Particle # " << i << " has collided with surface in x = " << a.getXCoordinate() << " y = " << a.getYCoordinate() << endl;
 					}
 				}
 

@@ -10,6 +10,7 @@ private:
 	vector<particle> particles;
 	vector<surface> surfaces;
 
+	//Служебный метод, проверяющий, пересекаются ли прямые, заданные двумя точками
 	bool areLinesIntersecting(point p1, point p2, point p3, point p4);
 
 public:

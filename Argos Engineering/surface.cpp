@@ -76,7 +76,7 @@ vector<particle> surface::spawnParticles(int numOfParticles, double xVelocity, d
 		point spawnPoint = this->lineOfSurface[rand() % this->lineOfSurface.size()];
 
 		particles.push_back(particle(spawnPoint, xVelocity, yVelocity, false));
-		cout << "Particle # " << i << " was spawned at x = " << spawnPoint.getXCoordinate() << " y = " << spawnPoint.getYCoordinate() << endl;
+		cout << "Particle was spawned at x = " << spawnPoint.getXCoordinate() << " y = " << spawnPoint.getYCoordinate() << endl;
 	}
 	cout << endl;
 	return particles;
