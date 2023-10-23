@@ -1,14 +1,9 @@
-﻿  Argos Engineering.cpp
-  engine.cpp
+﻿  engine.cpp
 C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(23,20): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(32,20): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(35,18): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(45,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(51,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(94,34): warning C4018: >=: несоответствие типов со знаком и без знака
-  particle.cpp
-  surface.cpp
-C:\Users\User\Desktop\Argos Engineering\Argos Engineering\surface.cpp(40,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Создание кода...
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(67,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(73,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(119,34): warning C4018: >=: несоответствие типов со знаком и без знака
 C:\Users\User\Desktop\Argos Engineering\Argos Engineering\engine.cpp(15): warning C4715: engine::findSpawningSurface: значение возвращается не при всех путях выполнения
   Argos Engineering.vcxproj -> C:\Users\User\Desktop\Argos Engineering\Debug\Argos Engineering.exe

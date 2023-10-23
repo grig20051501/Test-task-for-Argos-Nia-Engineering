@@ -39,36 +39,60 @@ point engine::findClosestPoint(double x, double y, vector<point> points) {
 	return points[num];
 }
 
+bool engine::areLinesIntersecting(point p1, point p2, point p3, point p4) {
+	double x1 = p1.getXCoordinate(), y1 = p1.getYCoordinate();
+	double x2 = p2.getXCoordinate(), y2 = p2.getYCoordinate();
+	double x3 = p3.getXCoordinate(), y3 = p3.getYCoordinate();
+	double x4 = p4.getXCoordinate(), y4 = p4.getYCoordinate();
+
+	double den = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
+
+	if (den == 0) {
+		return false;  // ѕр€мые параллельны или совпадают
+	}
+
+	double ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / den;
+	double ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / den;
+
+	if (ua >= 0 && ua <= 1 && ub >= 0 && ub <= 1) {
+		return true;   // ѕр€мые пересекаютс€ внутри отрезков
+	}
+
+	return false;   // ѕр€мые не пересекаютс€
+}
+
 void engine::moveParticles(int time) {
 
 	for (int j = 0; j < time; j++) {
 		for (int i = 0; i < this->particles.size(); i++) {
-			if (!this->particles[i].hasCollided()) {
 
 				point lastPartCoords = this->particles[i].getPath()[this->particles[i].getPath().size() - 1];
-				double xPart = lastPartCoords.getXCoordinate() + this->particles[i].getXVelocity();
-				double yPart = lastPartCoords.getYCoordinate() + this->particles[i].getYVelocity();
+				point part1 = point(lastPartCoords.getXCoordinate(), lastPartCoords.getYCoordinate());
+				point part2 = point(lastPartCoords.getXCoordinate() + this->particles[i].getXVelocity(), lastPartCoords.getYCoordinate() + this->particles[i].getYVelocity());
 
 				for (int k = 0; k < this->surfaces.size(); k++) {
 					//проверка на пересечение с материальной поверхностью
-					double x1 = this->surfaces[k].getPoints()[0].getXCoordinate();
-					double y1 = this->surfaces[k].getPoints()[0].getYCoordinate();
-					double x2 = this->surfaces[k].getPoints()[this->surfaces[k].getPoints().size() - 1].getXCoordinate();
-					double y2 = this->surfaces[k].getPoints()[this->surfaces[k].getPoints().size() - 1].getYCoordinate();
 
-					if ((xPart >= min(x1, x2) && xPart <= max(x1, x2)) && (yPart >= min(y1, y2) && yPart <= max(y1, y2))) {
-						point a = this->findClosestPoint(xPart, yPart, this->surfaces[k].getPoints());
+					point p1 = this->surfaces[k].getPoints()[0];
+					point p2 = this->surfaces[k].getPoints()[this->surfaces[k].getPoints().size() - 1];
+
+					if (this->areLinesIntersecting(part1, part2, p1, p2) && !this->surfaces[k].canSpawn() && !this->particles[i].hasCollided()) {
+						point a = this->findClosestPoint(part2.getXCoordinate(), part2.getYCoordinate(), this->surfaces[k].getPoints());
 						this->particles[i].addCollision(a);
 						cout << "Particle # " << i << " has collided in x = " << a.getXCoordinate() << " y = " << a.getYCoordinate() << endl;
 					}
 				}
 
 				if (!this->particles[i].hasCollided()) {
-					this->particles[i].addPoint(point(xPart, yPart));
+					this->particles[i].addPoint(part2);
+				}
+				else {
+					point lastPointOfPath = this->particles[i].getPath()[this->particles[i].getPath().size() - 1];
+					this->particles[i].addPoint(lastPointOfPath);
 				}
 			}
 		}
-	}
+	cout << endl;
 }
 
 void engine::printPathOfParticles() {
@@ -100,9 +124,6 @@ void engine::calculate(int time) {
 		}
 		if (counter != 0) {
 			averagePath.push_back(point(x / counter, y / counter));
-		}
-		else {
-			averagePath.push_back(point(x, y));
 		}
 	}
 

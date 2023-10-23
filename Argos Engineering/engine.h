@@ -10,6 +10,8 @@ private:
 	vector<particle> particles;
 	vector<surface> surfaces;
 
+	bool areLinesIntersecting(point p1, point p2, point p3, point p4);
+
 public:
 
 	//—лужебный метод обращени€ к единственной генерирующей поверхности
@@ -33,4 +35,6 @@ public:
 
 	//ѕоиск ближайшей точки в массиве points к координатам x, y
 	point findClosestPoint(double x, double y, vector<point> points);
+
+	
 };

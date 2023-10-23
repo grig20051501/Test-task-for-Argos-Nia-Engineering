@@ -8,16 +8,20 @@ using namespace std;
 
 int main()
 {
-	point first(0, 0);
-	point last(2, 2);
+	point first(0, 2);
+	point last(6, 6);
 
+	point a(4, 0);
+	point b(4, 10);
 	engine eng;	
-	eng.spawnSurface(first, last, 1, true);
-	eng.spawnSurface(point(3, 0), point(8,5), 1, false);
-	eng.spawnParticles(1);
-	eng.moveParticles(3);
-	eng.printPathOfParticles();
-	eng.calculate(3);
+
+	//cout << eng.areLinesIntersecting(first, last, a, b);
+
+	eng.spawnSurface(point(0,0), point(0,5), 1, true);
+	eng.spawnSurface(point(4, 0), point(4,10), 1, false);
+	eng.spawnParticles(10);
+	eng.moveParticles(5);
+	eng.calculate(5);
 
 	/*point a(4, 4), b(5, 3);
 	cout << (a < b);*/
