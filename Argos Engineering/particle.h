@@ -42,7 +42,10 @@ public:
 	//»зменение скорости движени€ частицы по оси y
 	void changeYVelocity(double newYVelocity);
 
-	//ƒвижение частицы в течение единичного отрезка времени
-	void move();
+    //ѕолучение скорости движени€ частицы по оси x
+    double getXVelocity();
+
+    //ѕолучение скорочти движени€ частицы по оси y
+    double getYVelocity();
 };
 

@@ -30,6 +30,10 @@ void surface::printLine() {
 	}
 }
 
+vector<point> surface::getPoints() {
+	return this->lineOfSurface;
+}
+
 //бюфмн: ядекюрэ опнбепйс бнглнфмнярх янгдюмхъ вюярхж
 vector<particle> surface::spawnParticles(int numOfParticles, double xVelocity, double yVelocity) {
 
@@ -61,7 +65,12 @@ vector<particle> surface::spawnParticles(int numOfParticles, double xVelocity, d
 			yVelocity = rand() % 9;
 		}
 
-		particles.push_back(particle(point(this->lineOfSurface[rand() % this->lineOfSurface.size()]), xVelocity, yVelocity, false));
+		point spawnPoint = this->lineOfSurface[rand() % this->lineOfSurface.size()];
+
+		particles.push_back(particle(spawnPoint, xVelocity, yVelocity, false));
+		cout << "Particle was spawned at x = " << spawnPoint.getXCoordinate() << " y = " << spawnPoint.getYCoordinate() << endl;
+		cout << " spawning surface is : " << endl;
+		this->printLine();
 	}
 	return particles;
 }

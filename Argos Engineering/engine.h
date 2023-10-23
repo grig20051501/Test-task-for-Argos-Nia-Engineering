@@ -30,4 +30,7 @@ public:
 
 	//“естовый метод дл€ вывода траектории движени€ каждой частицы
 	void printPathOfParticles();
+
+	//ѕоиск ближайшей точки в массиве points к координатам x, y
+	point findClosestPoint(double x, double y, vector<point> points);
 };
